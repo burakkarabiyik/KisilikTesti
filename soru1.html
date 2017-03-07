@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <meta name="description" content="Site Maker Description">
+  <title>Site Maker Title</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  
+  
+  
+</head>
+<body style="background:url('assets/images/arkaplan.jpg');  no-repeat center  fixed ;-webkit-background-size:cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+    
+<div class="row" style="-moz-user-select:none;color:black;font-size: 45px;background-color:#00B590">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-2">  <a><img class="img-responsive col-xs-6 " src="assets/images/logo.gif" /></a></div>
+  <div class="col-xs-3" style="font-size:75px">Kişilik Testi</div> 
+</div>
+<div class="container" style="-moz-user-select:none;">
+    <div style="margin-left: 50px">
+    <div class="row">
+        <div class="col-xs-12" style="margin-top:350px;  ">
+            <h1>
+                Soru 1
+            </h1>
+        </div>
+    </div>
+     
+            <div style="-moz-user-select:none;text-align:left;width:auto;font-weight:bold;color:darkorange">
+                <p style="font-size:30px">Aşağıdaki beyitlerden hangisi sizi daha iyi
+anlatır?
+</p>
+   
+</div>
+
+
+
+
+
+
+
+
+          
+    <div style="color:black">
+         <p ondblclick="myFunction(this.id)" style="width:auto;" onclick="myf(this.id)" id="seceneka">A) Güçlü, kararlı, girişken ve doğuştan liderim Düşer kalkar, yoluma devam ederim
+</p>
+    <p  style="width:auto" ondblclick="myFunction(this.id)" onclick="myf(this.id)" id="secenekb">B) Hayata anlamlı renkler katar eğlenceyi severim Ömür boyu herkesin mutlu ve neşeli olmasını dilerim.
+</p>
+    <p ondblclick="myFunction(this.id)" style="width:auto" onclick="myf(this.id)" id="secenekc">C) Her anımı huzurlu ve sakin geçirmek isterim Kavga gürültü sevmem, işlerimde en kolay yolu seçerim.
+</p>
+    <p ondblclick="myFunction(this.id)" style="width:auto" onclick="myf(this.id)" id="secenekd">D) Her şeyin mükemmel, düzgün, kusursuz olmasını isterim İlişkilerimde saygılı ve mesafeli olmayı severim.
+</p>
+    </div>
+    
+</div>
+</div>
+<div class="container">
+    <div style="height:30px">
+        
+    </div>
+    <button onclick="getir()">puan</button>
+    <a href="soru3.html" style="color:red">diger sayfa</a>
+<div id="tt">bos</div>
+</div>
+
+
+<script> 
+     localStorage.setItem("seceneka",0);
+     localStorage.setItem("secenekb",0);
+     localStorage.setItem("secenekc",0);
+     localStorage.setItem("secenekd",0);
+      
+     var dizi=["seceneka","secenekb","secenekc","secenekd"];
+     
+        function myf(ad) {   
+            if(document.getElementById(ad).style.color=="green")
+               {
+                   document.getElementById(ad).style.color="red";
+                   var a=localStorage.getItem(ad);
+                   a--; 
+                   localStorage.setItem(ad,a);
+               }
+           for (var i = 0; i < 4; i++) { 
+               var sec=dizi[i];
+                if(document.getElementById(sec).style.color=="red" && ad!=sec )
+               {
+                   document.getElementById(sec).style.color="black";
+                   var a=localStorage.getItem(sec);
+                   a--; 
+                   localStorage.setItem(sec,a);
+               }
+               else if(document.getElementById(sec).style.color=="red" && ad==sec)
+               {
+                   continue;
+               } 
+               else if(document.getElementById(sec).style.color!="red" && ad==sec)
+               {
+                   var a=localStorage.getItem(sec);
+                   a++;
+                   localStorage.setItem(sec,a); 
+                   document.getElementById(sec).style.color="red";
+               }
+         }
+        } 
+        function myFunction(ad) {
+            if(document.getElementById(ad).style.color=="red")
+               {
+                   document.getElementById(ad).style.color="green";
+                   var a=localStorage.getItem(ad);
+                   a++; 
+                   localStorage.setItem(ad,a);
+               } 
+           for (var i = 0; i < 4; i++) {
+                if(document.getElementById(dizi[i]).style.color=="green" && ad!=dizi[i])
+               {
+                   document.getElementById(dizi[i]).style.color="black";
+                   var a=localStorage.getItem(dizi[i]);
+                   a--;
+                   a--;
+                   localStorage.setItem(dizi[i],a);
+               }
+               else if(document.getElementById(dizi[i]).style.color=="green" && ad==dizi[i])
+               {
+                   continue;
+               } 
+               else if(document.getElementById(dizi[i]).style.color!="green" && ad==dizi[i])
+               {
+                   var a=localStorage.getItem(dizi[i]);
+                   a++; 
+                   localStorage.setItem(dizi[i],a);
+                   document.getElementById(ad).style.color="green";
+               }
+         }
+        } 
+        function getir()
+        {
+            document.getElementById("tt").innerHTML="a="+localStorage.getItem("seceneka")+" b="+localStorage.getItem("secenekb")+" c="+localStorage.getItem("secenekc")+" d="+localStorage.getItem("secenekd");
+        }
+</script>
+
+  <section class="engine"><a rel="external" href="https://mobirise.com">Mobirise</a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  
+  
+</body>
+</html>
