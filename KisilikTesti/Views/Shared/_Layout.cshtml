@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <link rel="shortcut icon" href="~/assets/images/logo.png" type="image/x-icon">
+    <meta name="description" content="Site Maker Description">
+    <title>Kişilik Testii</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="~/assets/bootstrap-material-design-font/css/material.css">
+    <link rel="stylesheet" href="~/assets/tether/tether.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/theme/css/style.css">
+    <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport">
+
+
+</head>
+<body style="background:url('~/assets/images/arkaplan.jpg');  no-repeat center  fixed ;-webkit-background-size:cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;">
+
+    <div class="row" style="-moz-user-select:none;color:black;font-size: 45px;background-color:#00B590">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2">  <a><img class="img-responsive col-xs-6 " src="~/assets/images/logo.gif" /></a></div>
+        <div class="col-xs-3" style="font-size:75px">Kişilik Testi</div>
+    </div>
+  @RenderBody()
+    <div class="container">
+        <div style="height:30px">
+
+        </div> 
+       
+    </div>
+
+    <script>
+     localStorage.setItem("seceneka",0);
+     localStorage.setItem("secenekb",0);
+     localStorage.setItem("secenekc",0);
+     localStorage.setItem("secenekd",0);
+
+     var dizi=["seceneka","secenekb","secenekc","secenekd"];
+     var secili = false;
+        function myf(ad) {
+            if(document.getElementById(ad).style.color=="green")
+               {
+                   document.getElementById(ad).style.color="red";
+                   var a=localStorage.getItem(ad);
+                   a--;
+                   localStorage.setItem(ad,a);
+               }
+           for (var i = 0; i < 4; i++) {
+               var sec=dizi[i];
+                if(document.getElementById(sec).style.color=="red" && ad!=sec )
+               {
+                   document.getElementById(sec).style.color="black";
+                   var a=localStorage.getItem(sec);
+                   a--;
+                   localStorage.setItem(sec,a);
+               }
+               else if(document.getElementById(sec).style.color=="red" && ad==sec)
+               {
+                   continue;
+               }
+               else if(document.getElementById(sec).style.color!="red" && ad==sec)
+               {
+                   var a=localStorage.getItem(sec);
+                   a++;
+                   localStorage.setItem(sec,a);
+                   document.getElementById(sec).style.color="red";
+               }
+           }
+           secili = true;
+        }
+        function myFunction(ad) {
+            if(document.getElementById(ad).style.color=="red")
+               {
+                   document.getElementById(ad).style.color="green";
+                   var a=localStorage.getItem(ad);
+                   a++;
+                   localStorage.setItem(ad,a);
+               }
+           for (var i = 0; i < 4; i++) {
+                if(document.getElementById(dizi[i]).style.color=="green" && ad!=dizi[i])
+               {
+                   document.getElementById(dizi[i]).style.color="black";
+                   var a=localStorage.getItem(dizi[i]);
+                   a--;
+                   a--;
+                   localStorage.setItem(dizi[i],a);
+               }
+               else if(document.getElementById(dizi[i]).style.color=="green" && ad==dizi[i])
+               {
+                   continue;
+               }
+               else if(document.getElementById(dizi[i]).style.color!="green" && ad==dizi[i])
+               {
+                   var a=localStorage.getItem(dizi[i]);
+                   a++;
+                   localStorage.setItem(dizi[i],a);
+                   document.getElementById(ad).style.color="green";
+               }
+           }
+            secili=true
+        }
+        function kontrol()
+        {
+             secili = false;
+        }
+    </script> 
+    <script src="~/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/tether/tether.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/smooth-scroll/smooth-scroll.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+
+
+</body>
+</html>

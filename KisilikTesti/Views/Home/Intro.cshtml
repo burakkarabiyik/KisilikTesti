@@ -1,0 +1,121 @@
+﻿
+@{ 
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+}
+ 
+@{ 
+    Session["aaa"] = "0";
+    Session["bbb"] = "0";
+    Session["ccc"] = "0";
+    Session["ddd"] = "0";
+} 
+     <script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#result').load('Soru1');
+            var i=1;
+            var ad="Soru";
+            var deg = "";
+            $('#btns').click(function () {
+                if(i>1)
+                i = i - 1;
+                deg = ad + i;
+                $('#result').load(deg);
+            });
+            document.getElementById("uyari").hidden = true;
+            var dizi = ["seceneka", "secenekb", "secenekc", "secenekd"];
+            $('#btn').click(function () {
+                var a = localStorage.getItem("seceneka");
+                var k = 0;
+               
+                
+                if (secili) {
+                    if (i < 15)
+                        i = i + 1;
+                    else if (i == 15) {
+                        $('#result').load("sonuc");
+                        var a = localStorage.getItem("seceneka");
+                        var b = localStorage.getItem("secenekb");
+                        var c = localStorage.getItem("secenekc");
+                        var d = localStorage.getItem("secenekd");
+
+                        if (b < a && c < a && d < a) {
+
+                            document.getElementById("btn").hidden = true;
+                            setTimeout("window.location.replace(\"kirmizi\");", 7000);
+
+
+                        }
+                        if (a < b && c < b && d < b) {
+
+                            document.getElementById("btn").hidden = true;
+
+                            setTimeout("window.location.replace(\"sari\");", 7000);
+                        }
+                        if (b < c && a < c && d < c) {
+
+                            document.getElementById("btn").hidden = true;
+                            setTimeout("window.location.replace(\"yesil\");", 7000);
+                        }
+                        if (a < d && b < d && c < d) {
+
+                            document.getElementById("btn").hidden = true;
+                            setTimeout("window.location.replace(\"mavi\");", 7000);
+                        }
+                    }
+
+
+                    deg = ad + i;
+                    gonder();
+                    $('#result').load(deg);
+                    if (i == 15) {
+                        document.getElementById("btn").value = "Sonuç";
+                    }
+                    secili = false;
+                    document.getElementById("uyari").hidden = true;
+                }
+                else
+                {
+
+                    document.getElementById("uyari").hidden = false;
+                  
+                }
+                    
+            });
+
+    });
+  
+    function gonder()
+    { 
+        var a = localStorage.getItem("seceneka");
+        var b = localStorage.getItem("secenekb");
+        var c = localStorage.getItem("secenekc");
+        var d = localStorage.getItem("secenekd"); 
+        
+    }
+
+    function uyari()
+    {
+        document.getElementById("uyari").innerHTML = "";
+        document.getElementById("uyari").hidden = true;
+    }
+
+    function scrr()
+    {
+        alert("a "+'@Session["aaa"]'+"  b= "+'@Session["bbb"]');
+    }
+    </script>
+      
+         <input type="button" class="btn btn-warning" style="text-align:center;margin-left:50%;margin-top:10px" id="btn" value="Sonraki Soru" /> 
+    <div id="result">abc</div>
+<div id="uyari" class="container alert alert-info alert-dismissable fade in">Boş Bırakma</div>
+ 
